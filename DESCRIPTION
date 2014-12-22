@@ -1,0 +1,24 @@
+Package: motiflogo
+Version: 0.1
+Date: 2014-10-01
+Title: motiflogo: A new representation of motif logo
+Authors@R: c( person("Zhilong", "Jia", email = "zhilongjia@gmail.com", role =
+    c("aut", "cre")))
+Depends:
+    R (>= 3.0),
+    reshape2,
+    ggplot2
+Imports:
+    methods,
+    class,
+Suggests:
+    knitr
+Description: motiflogo: A new representation of motif logo
+License: GPL-3
+LazyData: true
+URL: http://github
+Packaged: 2014-10-30 20:11:06 UTC; zjia
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2014-11-01
+VignetteBuilder: knitr

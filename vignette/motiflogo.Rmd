@@ -1,0 +1,60 @@
+---
+title: "motiflogo"
+author: "Zhilong JIA"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+A new representation of DNA motif logo via ggplot2. 
+
+- As a canonical motif logo representation.
+- As a SNP-specific motif logo representation.
+
+
+## Manual
+
+1. data
+```{r data}
+pfm <- matrix(data=c(5, 3, 16, 1, 0, 17, 17, 0, 0, 16, 12, 8,
+6, 9, 1, 1, 18,  1, 0, 0, 18,  1, 0, 2,
+2,3, 1, 0, 0, 0, 0, 1, 0, 0, 1, 2,
+5, 3, 0, 16, 0, 0, 1, 17,  0, 1, 5, 6), 
+byrow=TRUE,nrow=4,dimnames=list(c('A','C','G','T')))
+
+pwm <- apply(pfm, 2, function(x) x/sum(x))
+```
+2. Type 1 plotting
+```{r t1_plotting, fig.width=7, fig.height=5}
+require(devtools)
+load_all("../")
+motiflogo(pwm)
+```
+
+3. Type 2 plotting
+```{r t2_plotting, fig.width=7, fig.height=5}
+#the length of xlabel should same as the the number of columns in PWM.
+xlabel <- c("T\nT", "G\nG", "A\nA", "T\nT", "C\nC", "A\nC", "A\nA", "A\nA", 
+            "C\nC","A\nA", "A\nA", "T\nT")
+motiflogo(pwm, xlabel=xlabel)
+motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
+```
+
+
+
+## Bug Report
+    github
+
+
+
+##Other Information
+System info
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```
+The END
+
+
