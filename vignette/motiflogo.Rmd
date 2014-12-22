@@ -46,9 +46,7 @@ motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
 
 
 ## Bug Report
-    github
-
-
+    https://github.com/zhilongjia/motiflogo/issues
 
 ##Other Information
 System info
