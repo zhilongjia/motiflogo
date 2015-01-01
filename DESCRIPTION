@@ -16,7 +16,8 @@ Suggests:
 Description: motiflogo: A new representation of motif logo
 License: GPL-3
 LazyData: true
-URL: http://github
+URL: https://github.com/zhilongjia/motiflogo
+BugReports: https://github.com/zhilongjia/motiflogo/issues
 Packaged: 2014-10-30 20:11:06 UTC; zjia
 NeedsCompilation: no
 Repository: CRAN
