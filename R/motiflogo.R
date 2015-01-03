@@ -12,6 +12,7 @@
 #' @author Zhilong Jia
 #' @export
 #' @examples
+#' library(motiflogo)
 #' pfm <- matrix(data=c(5, 3, 16, 1, 0, 17, 17, 0, 0, 16, 12, 8,
 #' 6, 9, 1, 1, 18,  1, 0, 0, 18,  1, 0, 2,
 #' 2,3, 1, 0, 0, 0, 0, 1, 0, 0, 1, 2,
@@ -19,16 +20,18 @@
 #' byrow=TRUE,nrow=4,dimnames=list(c('A','C','G','T')))
 #' 
 #' pwm <- apply(pfm, 2, function(x) x/sum(x))
+#' 
 #' motiflogo(pwm)
 #' 
-#' xlabel <- c("T\nT", "G\nG", "A\nA", "T\nT", "C\nC", "A\nC", "A\nA", "A\nA", "C\nC","A\nA", "A\nA", "T\nT")
+#' xlabel <- c("T\nT", "G\nG", "A\nA", "T\nT", "C\nC", "A\nC", "A\nA", "A\nA", 
+#' "C\nC","A\nA", "A\nA", "T\nT")
 #' motiflogo(pwm, xlabel=xlabel)
 #' motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
 #' 
 #' 
-motiflogo<-function(pwm, xlabel=NULL, ylabel="Information Content", tit="Motif", addpoint=FALSE, 
-                   scaleSize=c(5,20)){  
-    
+motiflogo<-function(pwm, xlabel=NULL, ylabel="Information Content", 
+                    tit="Motif", addpoint=FALSE, scaleSize=c(5,20)){  
+    #source(paste0(system.file("R", package="motiflogo"), "/nts2para.R"))
     ic <- apply(pwm, 2, function (x) { x[which(x==0)] = 0.000001; 2 + sum(x*log2(x))})
     ic <- rep(ic, each=4 )
     data <- melt(pwm, varnames=c("nt","Position"))
@@ -40,7 +43,7 @@ motiflogo<-function(pwm, xlabel=NULL, ylabel="Information Content", tit="Motif",
     if (!is.null(xlabel)) {
         if (length(xlabel) == ncol(pwm))
             {p1 <- p+ theme(axis.text.x=element_text(size=sapply(xlabel, nts2size),
-                                                 face=sapply(xlabel,nts2fnot),
+                                                 face=sapply(xlabel,nts2font),
                                                  colour=sapply(xlabel, nts2col)),
                       axis.title=element_text(size=14), 
                       axis.ticks.x = element_line(size = 0.5, colour = "black", linetype = "solid")) +

@@ -10,7 +10,7 @@ Depends:
     ggplot2
 Imports:
     methods,
-    class,
+    class
 Suggests:
     knitr
 Description: motiflogo: A new representation of motif logo
@@ -21,5 +21,4 @@ BugReports: https://github.com/zhilongjia/motiflogo/issues
 Packaged: 2014-10-30 20:11:06 UTC; zjia
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2014-11-01
 VignetteBuilder: knitr

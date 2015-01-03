@@ -24,6 +24,7 @@ A new representation of DNA motif logo via ggplot2. Besides, the xlabel could
 be DNA or SNP.
 }
 \examples{
+library(motiflogo)
 pfm <- matrix(data=c(5, 3, 16, 1, 0, 17, 17, 0, 0, 16, 12, 8,
 6, 9, 1, 1, 18,  1, 0, 0, 18,  1, 0, 2,
 2,3, 1, 0, 0, 0, 0, 1, 0, 0, 1, 2,
@@ -31,10 +32,15 @@ pfm <- matrix(data=c(5, 3, 16, 1, 0, 17, 17, 0, 0, 16, 12, 8,
 byrow=TRUE,nrow=4,dimnames=list(c('A','C','G','T')))
 
 pwm <- apply(pfm, 2, function(x) x/sum(x))
+
 motiflogo(pwm)
 
-xlabel <- c("T\\nT", "G\\nG", "A\\nA", "T\\nT", "C\\nC", "A\\nC", "A\\nA", "A\\nA", "C\\nC","A\\nA", "A\\nA", "T\\nT")
+xlabel <- c("T\\nT", "G\\nG", "A\\nA", "T\\nT", "C\\nC", "A\\nC", "A\\nA", "A\\nA",
+"C\\nC","A\\nA", "A\\nA", "T\\nT")
 motiflogo(pwm, xlabel=xlabel)
 motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
+}
+\author{
+Zhilong Jia
 }
 
