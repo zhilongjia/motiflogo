@@ -16,7 +16,7 @@ AGCT2col <- function(nt){
 #' @rdname AGCT2col
 nts2col <- function(nts){
     nts <- as.character(nts)
-    AGCTcol <- list("A\nA"="firebrick2", "G\nG"="forestgreen", "C\nC"="blue", "T\nT"="darkorchid3")
+    AGCTcol <- list("A"="firebrick2", "G"="forestgreen", "C"="blue", "T"="darkorchid3")
     if (is.null(AGCTcol[[nts]])){
         "black"
     } else {
@@ -27,9 +27,10 @@ nts2col <- function(nts){
 #' @rdname AGCT2col
 nts2size <- function(nts){
     nts <- as.character(nts)
-    AGCTcol <- list("A\nA"=14, "G\nG"=14, "C\nC"=14, "T\nT"=14)
+    AGCTsize <- 20
+    AGCTcol <- list("A"=AGCTsize, "G"=AGCTsize, "C"=AGCTsize, "T"=AGCTsize)
     if (is.null(AGCTcol[[nts]])){
-        20
+        16
     } else {
         AGCTcol[[nts]]
     }
@@ -38,7 +39,8 @@ nts2size <- function(nts){
 #' @rdname AGCT2col
 nts2font <- function(nts){
     nts <- as.character(nts)
-    AGCTcol <- list("A\nA"="bold", "G\nG"="bold", "C\nC"="bold", "T\nT"="bold")
+    AGCTbold = "bold"
+    AGCTcol <- list("A"=AGCTbold, "G"=AGCTbold, "C"=AGCTbold, "T"=AGCTbold)
     if (is.null(AGCTcol[[nts]])){
         "bold.italic"
     } else {

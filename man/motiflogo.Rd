@@ -3,15 +3,15 @@
 \alias{motiflogo}
 \title{A new representation of DNA motif logo}
 \usage{
-motiflogo(pwm, xlabel = NULL, ylabel = "Information Content",
-  tit = "Motif", addpoint = FALSE, scaleSize = c(5, 20))
+motiflogo(pwm, xlabel = NULL, ylabel = "Bits", tit = "Motif",
+  addpoint = FALSE, scaleSize = c(5, 20))
 }
 \arguments{
 \item{pwm}{position weight matrix}
 
 \item{xlabel}{text of label in x-axis}
 
-\item{ylabel}{The default is Information Content}
+\item{ylabel}{The default is Bits}
 
 \item{tit}{The default is Motif}
 
@@ -35,8 +35,7 @@ pwm <- apply(pfm, 2, function(x) x/sum(x))
 
 motiflogo(pwm)
 
-xlabel <- c("T\\nT", "G\\nG", "A\\nA", "T\\nT", "C\\nC", "A\\nC", "A\\nA", "A\\nA",
-"C\\nC","A\\nA", "A\\nA", "T\\nT")
+xlabel <- c("T", "G", "A", "T", "C", "A\\nC", "A", "A", "C","A", "A", "T")
 motiflogo(pwm, xlabel=xlabel)
 motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
 }

@@ -27,18 +27,18 @@ byrow=TRUE,nrow=4,dimnames=list(c('A','C','G','T')))
 
 pwm <- apply(pfm, 2, function(x) x/sum(x))
 ```
-2. Type 1 plotting
+2. Type 1 plotting: as a canonical motif logo representation
 ```{r t1_plotting, fig.width=7, fig.height=5}
-require(devtools)
-load_all("../")
+# require(devtools)
+# load_all("../")
+library(motiflogo)
 motiflogo(pwm)
 ```
 
-3. Type 2 plotting
+3. Type 2 plotting: as a SNP-specific motif logo representation
 ```{r t2_plotting, fig.width=7, fig.height=5}
 #the length of xlabel should same as the the number of columns in PWM.
-xlabel <- c("T\nT", "G\nG", "A\nA", "T\nT", "C\nC", "A\nC", "A\nA", "A\nA", 
-            "C\nC","A\nA", "A\nA", "T\nT")
+xlabel <- c("T", "G", "A", "T", "C", "A\nC", "A", "A", "C","A", "A", "T")
 motiflogo(pwm, xlabel=xlabel)
 motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
 ```

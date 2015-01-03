@@ -5,7 +5,7 @@
 #' 
 #' @param pwm position weight matrix
 #' @param xlabel text of label in x-axis
-#' @param ylabel The default is Information Content
+#' @param ylabel The default is Bits
 #' @param tit The default is Motif
 #' @param addpoint add point to the position of nt. The default is FALSE
 #' @param scaleSize the scale size of nt. ref \code{\link[ggplot2]{scale_size}}
@@ -23,13 +23,12 @@
 #' 
 #' motiflogo(pwm)
 #' 
-#' xlabel <- c("T\nT", "G\nG", "A\nA", "T\nT", "C\nC", "A\nC", "A\nA", "A\nA", 
-#' "C\nC","A\nA", "A\nA", "T\nT")
+#' xlabel <- c("T", "G", "A", "T", "C", "A\nC", "A", "A", "C","A", "A", "T")
 #' motiflogo(pwm, xlabel=xlabel)
 #' motiflogo(pwm, xlabel=xlabel, addpoint=TRUE)
 #' 
 #' 
-motiflogo<-function(pwm, xlabel=NULL, ylabel="Information Content", 
+motiflogo<-function(pwm, xlabel=NULL, ylabel="Bits", 
                     tit="Motif", addpoint=FALSE, scaleSize=c(5,20)){  
     #source(paste0(system.file("R", package="motiflogo"), "/nts2para.R"))
     ic <- apply(pwm, 2, function (x) { x[which(x==0)] = 0.000001; 2 + sum(x*log2(x))})
